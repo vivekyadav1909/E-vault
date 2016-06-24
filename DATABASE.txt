@@ -1,0 +1,81 @@
+/*
+SQLyog - Free MySQL GUI v5.14
+Host - 5.0.77-community-nt : Database - file_upload
+*********************************************************************
+Server version : 5.0.77-community-nt
+*/
+
+SET NAMES utf8;
+
+SET SQL_MODE='';
+
+create database if not exists `file_upload`;
+
+USE `file_upload`;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO';
+
+/*Table structure for table `files` */
+
+DROP TABLE IF EXISTS `files`;
+
+CREATE TABLE `files` (
+  `id` int(4) NOT NULL auto_increment,
+  `uname` char(50) default NULL,
+  `file_cat` char(100) default NULL,
+  `file_name` char(200) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+/*Data for the table `files` */
+
+/*Table structure for table `files_sent` */
+
+DROP TABLE IF EXISTS `files_sent`;
+
+CREATE TABLE `files_sent` (
+  `id` int(4) NOT NULL auto_increment,
+  `fromuname` char(50) default NULL,
+  `touname` char(50) default NULL,
+  `file_cat` char(100) default NULL,
+  `file_name` char(200) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+/*Data for the table `files_sent` */
+
+/*Table structure for table `user_session` */
+
+DROP TABLE IF EXISTS `user_session`;
+
+CREATE TABLE `user_session` (
+  `id` int(4) NOT NULL auto_increment,
+  `uname` char(50) default NULL,
+  `passw` char(50) default NULL,
+  `pin` char(50) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+/*Data for the table `user_session` */
+
+/*Table structure for table `users` */
+
+DROP TABLE IF EXISTS `users`;
+
+CREATE TABLE `users` (
+  `id` int(4) NOT NULL auto_increment,
+  `uname` char(50) default NULL,
+  `passw` char(50) default NULL,
+  `addr` char(100) default NULL,
+  `email` char(50) default NULL,
+  `mobile` char(50) default NULL,
+  `ques` char(100) default NULL,
+  `ans` char(100) default NULL,
+  `photo1` char(100) default NULL,
+  `curdate` varchar(100) default NULL,
+  `newdate` varchar(100) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+/*Data for the table `users` */
+
+SET SQL_MODE=@OLD_SQL_MODE;
